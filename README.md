@@ -5,3 +5,5 @@
 4. Pushed to remote repo using "git push -u origin master"
 5. Forgot to save so I pushed an empty but new file. Saved, added, committed, pushed actual content.
 6. Created a new branch called "merge" with "git checkout -b merge".
+7. Added some fluff and committed it.
+8. Pushed it to the repo, making a new branch, with "git push --set-upstream origin merge".
