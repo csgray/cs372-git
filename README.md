@@ -7,3 +7,6 @@
 6. Created a new branch called "merge" with "git checkout -b merge".
 7. Added some fluff and committed it.
 8. Pushed it to the repo, making a new branch, with "git push --set-upstream origin merge".
+9. Switched to master branch and merged merge branch with "git merge merge". (Not the best choice of names). Clean fast-forward.
+
+This was a pretty boring merge... If you look at the graph, the two branches are right on top of each other. It almost looks like there was never a merge at all. TIME FOR SOME CONFLICT!
