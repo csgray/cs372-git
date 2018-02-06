@@ -25,3 +25,35 @@ I decided to clean it up manually and add all this fluff.
 15. Finished up this explanation, fixed the grammar and formatting, committed it, and pushed it! Done!
 
 ![Screenshot of the Git Network diagram showing the branch history](https://raw.githubusercontent.com/csgray/cs372-git/master/network.jpg "It's nothing special, but it does show what happened.")
+
+## Part C: Three Git Commands
+### git reset --hard \<commit ID>
+This _kind of_ defeats the purpose of Git, so it isn't officially recommended - but there's been times when I've needed to destroy stuff. This command does it. It irrevocably rolls your repository, meaning all the files in your local directory, back to whatever state it had at that commit ID (which you get from examining git log). The changes are gone. The commits are gone. It's like everything that happened after that commit never happened.
+
+If you use "git reset --hard HEAD" it blows away all the changes to your files since your last commit. Which is still kind of scary but nice for when your code has gone pear-shaped and you want a fresh start with something that worked.
+
+### git clean
+This command gets rid of everything in your repository that shouldn't be there, meaning everything that shows up under "untracked files" when you check "git status". Stuff deleted by Git doesn't go to the Recycle Bin, so make sure you really want to delete it. This command has some useful flags.
+
+**-d** will delete untracked directories in addition to files. 
+
+**-f** means "force" or "Yes, really, delete all the things. I mean it." You'll probably have to use this if you haven't modified your configuration file to change "clean.requireFalse" to false.
+
+**-i** starts "interactive mode" where instead of deleting things automatically Git will present you with options to delete them all, ask for each file, delete according to a filter, select multiple files to delete, quit, or displayhelp.
+
+**-n** shows you what will be deleted if you run that command again without "-n" but doesn't actually delete anything.
+
+**-q** means "quiet" so Git won't tell you which files you just deleted. Otherwise it displays a list of "Removing..."
+
+**-e /<pattern>** means "exclude" and lets you specify additional files to ignore according to some pattern. Usually, the only files Git spares are those you tell it to in .gitignore. This lets you tell it to ignore a bunch of other files as well.
+
+**-x** means "delete everything untracked" including all the things on .gitignore. No files are spared.
+
+**-X** only deletes the stuff that is on .gitignore.
+
+If you really hate all of the stuff cluttering up your repository, try "git clean -xdf" which deletes all ignored files, all untracked directories, really, no second chances.
+
+### git cherry-pick \<commit ID>
+This command lets you be very selective about what you merge into your code. Rather than do an entire branch all at once, it lets you merge individual commits. Each commit that is added to your code also gets its own commit on your branch, instead of one large merge commit, so you can even progressively roll things back. 
+
+This command has a _lot_ of options, so you should check them all out at https://git-scm.com/docs/git-cherry-pick
