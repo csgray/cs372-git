@@ -7,3 +7,5 @@
 6. Created a new branch called "merge" with "git checkout -b merge".
 7. Added some fluff and committed it.
 8. Pushed it to the repo, making a new branch, with "git push --set-upstream origin merge".
+
+## I DO WHAT I WANT!!!! WHEN I WANT! AND I MAKE OTHER PEOPLE CLEAN UP MY CODE!
